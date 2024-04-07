@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Ajouter un produit</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<style>
+			/* Styles spécifiques au formulaire */
+			.container {
+				max-width: 500px;
+				margin: 0 auto;
+				padding: 20px;
+			}
+			h1 {
+				margin-bottom: 20px;
+			}
+			.form-group {
+				margin-bottom: 20px;
+			}
+			input[type="submit"] {
+				padding: 10px 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Ajouter un produit</h1>
+
+			<form method="post" action="{{ path('add_product') }}">
+				<div class="form-group">
+					<label for="name">Nom du produit:</label>
+					<input type="text" class="form-control" id="name" name="name">
+				</div>
+				<div class="form-group">
+					<label for="price">Prix:</label>
+					<input type="text" class="form-control" id="price" name="price">
+				</div>
+				<div class="form-group">
+					<label for="quantity">Quantité:</label>
+					<input type="text" class="form-control" id="quantity" name="quantity">
+				</div>
+				<div class="form-group">
+					<label for="description">Description:</label>
+					<input type="text" class="form-control" id="description" name="description">
+				</div>
+				<input type="submit" class="btn btn-primary" value="Ajouter">
+			</form>
+		</div>
+	</body>
+</html>

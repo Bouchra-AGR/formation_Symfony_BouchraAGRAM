@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Liste des produits</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<style>
+			$ .container {
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 20px;
+			}
+			h1 {
+				margin-bottom: 20px;
+			}
+			.btn-add {
+				margin-bottom: 20px;
+			}
+			.table th,
+			.table td {
+				vertical-align: middle;
+			}
+			.btn-actions {
+				display: flex;
+				gap: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Liste des produits</h1>
+			<a href="{{ path('formulaire') }}" class="btn btn-primary btn-add">Ajouter un nouveau produit</a>
+			<form method="get" action="{{ path('list_product') }}" class="form-inline mb-3">
+				<input type="text" class="form-control mr-2" name="search" placeholder="Rechercher par nom">
+				<button type="submit" class="btn btn-primary">Rechercher</button>
+			</form>
+
+			{% for type, flashes in app.flashes %}
+				{% for flash in flashes %}
+					<div class="alert {% if type == 'error' %}alert-danger{% elseif type == 'success' %}alert-success{% endif %}" role="alert">
+						{{ flash }}
+					</div>
+				{% endfor %}
+			{% endfor %}
+
+			{% if products is empty %}
+				<p>Aucun produit trouvé.</p>
+			{% else %}
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">Nom</th>
+							<th scope="col">Prix TTC</th>
+							<th scope="col">Quantité</th>
+							<th scope="col">Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for product in products %}
+							<tr>
+								<td>{{ product.name }}</td>
+								<td>{{ product.price }}</td>
+								<td>{{ product.quantity }}</td>
+								<td class="btn-actions">
+									{% if product.id is not null %}
+										<a href="{{ path('details', {'id': product.id}) }}" class="btn btn-info btn-sm">Détails</a>
+										<a href="{{ path('delete', {'id': product.id}) }}" class="btn btn-danger btn-sm">Supprimer</a>
+									{% endif %}
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			{% endif %}
+		</div>
+	</body>
+</html>

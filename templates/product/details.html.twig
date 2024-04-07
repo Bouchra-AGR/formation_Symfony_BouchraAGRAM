@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Détails du produit</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<style>
+			.container {
+				max-width: 500px;
+				margin: 0 auto;
+				padding: 20px;
+			}
+			h1 {
+				margin-bottom: 20px;
+			}
+			.product-detail {
+				margin-bottom: 20px;
+			}
+			.btn-back {
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Détails du produit</h1>
+
+			<div class="product-detail">
+				<p>
+					<strong>Nom:</strong>
+					{{ product.name }}</p>
+				<p>
+					<strong>Prix:</strong>
+					{{ product.price }}</p>
+				<p>
+					<strong>Quantité:</strong>
+					{{ product.quantity }}</p>
+			</div>
+
+			<a href="{{ path('list_product') }}" class="btn btn-primary btn-back">Retour à la liste des produits</a>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ operation }}
+			Result</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 0;
+				background-color: #f4f4f4;
+			}
+			.container {
+				max-width: 600px;
+				margin: 50px auto;
+				padding: 20px;
+				background-color: #fff;
+				border-radius: 8px;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			}
+			h1 {
+				font-size: 28px;
+				color: #333;
+			}
+			p {
+				font-size: 18px;
+				color: #666;
+			}
+			.result {
+				font-size: 24px;
+				font-weight: bold;
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>{{ operation }}
+				Result</h1>
+			<p>Number 1:
+				<span class="number">{{ number1 is not null ? number1 : 'null' }}</span>
+			</p>
+			<p>Number 2:
+				<span class="number">{{ number2 is not null ? number2 : 'null' }}</span>
+			</p>
+			<p class="result">Result:
+				{{ result }}</p>
+		</div>
+	</body>
+</html>

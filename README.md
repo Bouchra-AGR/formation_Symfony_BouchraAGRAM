@@ -1,4 +1,4 @@
-# Symphony-Formation-Services Bouchra AGRAM
+# Symfony-Formation-Services Bouchra AGRAM
 
 ### 1. Prerequisites
 
